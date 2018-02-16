@@ -1,0 +1,32 @@
+---
+title: "Map where I've lived"
+author: "Holly Parish"
+date: "February 16, 2018"
+output: ioslides_presentation
+---
+
+
+## February 16, 2018 
+
+This is a map of the cities in Canada where I've lived since birth - starting with Summerside, PEI.
+
+##  February 16, 2018 
+This is a map of the cities in Canada where I've lived since birth - starting with Summerside, PEI.
+
+```{r echo=FALSE}
+library(leaflet)
+myHomesCoord <- data.frame(lat = c(46.3934,44.5338, 47.5615, 44.6652,44.1011,43.4643, 43.3700),
+                           lng = c(-63.7902,-63.7555,-52.7126,-63.5677,-77.5763,-80.5204,-80.9822))
+myHomesNames <- c("Summerside, PEI", "Whites Lake, NS", "St. John's, NL", "Dartmouth, NS", "Trenton, ON", "Waterloo, ON", "Stratford, ON")
+my_map <- myHomesCoord %>%
+          leaflet() %>%
+          addTiles() %>%
+          addCircleMarkers(color="#03F", weight= 5, opacity = 0.5, label = myHomesNames)
+
+my_map
+
+```
+
+```{r echo=FALSE}
+```
+
